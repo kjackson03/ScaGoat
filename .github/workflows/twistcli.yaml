@@ -16,6 +16,7 @@ jobs:
       - name: ACR login
         uses: azure/login-action@v2
         with:
+          login-server: 'kjimages.azurecr.io'
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_TOKEN }}
 
