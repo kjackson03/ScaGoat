@@ -4,7 +4,7 @@ name: Cortex CLI Code Scan
 on:
   push:
     branches:
-      - SCAPR
+      - SCAPRDev
   workflow_dispatch:
 
 env:
