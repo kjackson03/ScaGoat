@@ -35,7 +35,8 @@ jobs:
           -H "x-xdr-auth-id: ${CORTEX_API_KEY_ID}" \
           -H "Authorization: ${CORTEX_API_KEY}")
         crtx_url=$(echo $crtx_resp | jq -r ".signed_url")
-        curl -o cortexcli $crtx_url
+        crtx_file=$(echo $crtx_resp | jq -r ".file_name")
+        curl -o $crtx_file $crtx_url 
         chmod +x cortexcli
         ./cortexcli --version
 
