@@ -49,5 +49,6 @@ jobs:
           --directory "${{github.workspace}}" \
           --repo-id "${{github.repository}}" \
           --branch "${{github.ref_name}}" \
+          --framework "sca" \
           --source "GITHUB_ACTIONS" \
           --create-repo-if-missing
