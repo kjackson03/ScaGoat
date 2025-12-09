@@ -10,7 +10,7 @@ on:
 env:
   CORTEX_API_KEY: ${{secrets.CORTEX_API_KEY}}
   CORTEX_API_KEY_ID: ${{secrets.CORTEX_API_KEY_ID}}
-  CORTEX_API_URL: https://ms-cxsiamp.xdr.us.paloaltonetworks.com/
+  CORTEX_API_URL: https://api-ms-cxsiamp.xdr.us.paloaltonetworks.com
   
 jobs:
   cortex-code-scan:
@@ -31,12 +31,11 @@ jobs:
     - name: Download cortexcli
       run: |
         set -x
-        crtx_resp=$(curl -s "${CORTEX_API_URL}/public_api/v1/unified-cli/releases/download-link?os=linux&architecture=amd64" \
+        crtx_resp=$(curl "${CORTEX_API_URL}/public_api/v1/unified-cli/releases/download-link?os=linux&architecture=amd64" \
           -H "x-xdr-auth-id: ${CORTEX_API_KEY_ID}" \
           -H "Authorization: ${CORTEX_API_KEY}")
         crtx_url=$(echo $crtx_resp | jq -r ".signed_url")
-        crtx_file=$(echo $crtx_resp | jq -r ".file_name")
-        curl -o $crtx_file $crtx_url 
+        curl -o cortexcli $crtx_url
         chmod +x cortexcli
         ./cortexcli --version
 
