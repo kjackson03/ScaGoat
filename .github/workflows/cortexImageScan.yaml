@@ -44,19 +44,19 @@ jobs:
         chmod +x cortexcli
         ./cortexcli --version
 
-    - name: Log into Azure Container Registry
-      uses: elgohr/acr-login-action@master
-      with:
-        service_principal: ${{ secrets.ACR_PRINCIPAL }}
-        service_principal_password: ${{ secrets.ACR_PRINCIPAL_PASSWORD }}
-        tenant: ${{ secrets.TENANT }}
-        registry: ${{ secrets.REGISTRY }}
-        repository: ${{ secrets.REPOSITORY }}
+ #   - name: Log into Azure Container Registry
+ #     uses: elgohr/acr-login-action@master
+ #     with:
+ #     service_principal: ${{ secrets.ACR_PRINCIPAL }}
+ #       service_principal_password: ${{ secrets.ACR_PRINCIPAL_PASSWORD }}
+ #       tenant: ${{ secrets.TENANT }}
+ #       registry: ${{ secrets.REGISTRY }}
+ #       repository: ${{ secrets.REPOSITORY }}
 
     - name: Login to Docker and pull image
       run: |
-        docker login -u ${{ secrets.ACR_PRINCIPAL }} -p ${{ ACR_PRINCIPAL_PASSWORD }}
-        docker pull kjimages.azurecr.io/myubuntu:188
+        sudo docker login -u ${{ secrets.ACR_PRINCIPAL }} -p ${{ secrets.ACR_PRINCIPAL_PASSWORD }}
+        sudo docker pull kjimages.azurecr.io/myubuntu:188
     
     - name: Run Cortex CLI Image Scan
       run: |
