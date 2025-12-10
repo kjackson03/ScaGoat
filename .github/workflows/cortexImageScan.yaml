@@ -29,7 +29,9 @@ jobs:
       run: node -v
 
     - name: Install libhyperscan5 library
-      run: sudo apt install libhyperscan5
+      run: |
+        sudo apt update
+        sudo apt install libhyperscan5
 
     - name: Download cortexcli
       run: |
