@@ -55,8 +55,8 @@ jobs:
 
     - name: Login to Docker and pull image
       run: |
-        sudo docker login -u ${{ secrets.ACR_PRINCIPAL }} -p ${{ secrets.ACR_PRINCIPAL_PASSWORD }}
-        sudo docker pull kjimages.azurecr.io/myubuntu:188
+        docker login -u ${{ secrets.ACR_PRINCIPAL }} -p ${{ secrets.ACR_PRINCIPAL_PASSWORD }} https://kjimages.azurecr.io
+        docker pull kjimages.azurecr.io/myubuntu:188
     
     - name: Run Cortex CLI Image Scan
       run: |
