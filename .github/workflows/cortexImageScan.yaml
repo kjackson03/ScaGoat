@@ -53,9 +53,10 @@ jobs:
         registry: ${{ secrets.REGISTRY }}
         repository: ${{ secrets.REPOSITORY }}
 
-    - name: Pull Docker image
+    - name: Login to Docker and pull image
       run: |
-        docker pull kjimages.azurecr.io/myubuntu:latest
+        docker login -u ${{ secrets.ACR_PRINCIPAL }} -p ${{ ACR_PRINCIPAL_PASSWORD }}
+        docker pull kjimages.azurecr.io/myubuntu:188
     
     - name: Run Cortex CLI Image Scan
       run: |
