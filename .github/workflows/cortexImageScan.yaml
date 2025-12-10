@@ -39,10 +39,14 @@ jobs:
         chmod +x cortexcli
         ./cortexcli --version
 
-    - name: Log into Azure
-      uses: azure/login@v2
+    - name: Log into Azure Container Registry
+      uses: elgohr/acr-login-action@master
       with:
-        creds: ${{secrets.AZURE_CREDENTIALS}}
+        service_principal: ${{ secrets.ACR_PRINCIPAL }}
+        service_principal_password: ${{ secrets.ACR_PRINCIPAL_PASSWORD }}
+        tenant: ${{ secrets.TENANT }}
+        registry: ${{ secrets.REGISTRY }}
+        repository: ${{ secrets.REPOSITORY }}
 
     - name: Run Cortex CLI Image Scan
       run: |
