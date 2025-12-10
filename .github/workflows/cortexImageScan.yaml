@@ -64,4 +64,4 @@ jobs:
           --api-base-url "${CORTEX_API_URL}" \
           --api-key "${CORTEX_API_KEY}" \
           --api-key-id "${CORTEX_API_KEY_ID}" \
-          image scan kjimages.azurecr.io/myubuntu:latest
+          image scan kjimages.azurecr.io/myubuntu:188
