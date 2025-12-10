@@ -60,10 +60,3 @@ jobs:
           --api-key "${CORTEX_API_KEY}" \
           --api-key-id "${CORTEX_API_KEY_ID}" \
           image scan kjimages.azurecr.io/myubuntu:latest
-      #    code scan \
-      #    --directory "${{github.workspace}}" \
-      #    --repo-id "${{github.repository}}" \
-      #    --branch "${{github.ref_name}}" \
-      #    --framework "sca" \
-      #    --source "GITHUB_ACTIONS" \
-      #    --create-repo-if-missing
