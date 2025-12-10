@@ -28,6 +28,9 @@ jobs:
     - name: Verify Node.js Version
       run: node -v
 
+    - name: Install libhyperscan5 library
+      run: sudo apt install libhyperscan5
+
     - name: Download cortexcli
       run: |
         set -x
