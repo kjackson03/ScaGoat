@@ -53,6 +53,10 @@ jobs:
         registry: ${{ secrets.REGISTRY }}
         repository: ${{ secrets.REPOSITORY }}
 
+    - name: Pull Docker image
+      run: |
+        docker pull kjimages.azurecr.io/myubuntu:latest
+    
     - name: Run Cortex CLI Image Scan
       run: |
         ./cortexcli \
