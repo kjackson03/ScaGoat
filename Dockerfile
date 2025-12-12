@@ -6,7 +6,6 @@ COPY default /etc/nginx/sites-available/default
 
 # Expose the port for access
 EXPOSE 80/tcp
-EXPOSE 22/tcp
 
 # Run the Nginx server
 CMD /opt/entrypoint.sh && /usr/sbin/nginx -g daemon off
